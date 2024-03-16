@@ -35,7 +35,7 @@ export default function Home(props: HomeProps) {
     const changeTab = (tab: string) => {
         console.log(tab);
         setActive(tab);
-        // changePage(1);
+        changePageNumber(1);
         const newSearchParams = new URLSearchParams(searchParams);
         newSearchParams.set("tab", tab);
         newSearchParams.set("_start", "0");
@@ -53,6 +53,10 @@ export default function Home(props: HomeProps) {
         const newUrl = `${pathname}?${newSearchParams.toString()}`;
         console.log(newUrl);
         router.push(newUrl);
+    }
+
+    const changePageNumber = (page: number) => {
+        setPage(page);
     }
 
     const nextPage = () => {
